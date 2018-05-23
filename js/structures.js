@@ -17,13 +17,11 @@ htmlStructures = {
             </div>`,
 
     menuPoints: `
-                <li class="nav-item">
-                    <a class="nav-link usrList" >User list</a>
-                </li>
+                
                 <li class="nav-item addUserBtn" data-toggle="modal" data-target="#addUserModal">
                     <a class="nav-link" >Add user</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" data-toggle="modal" data-target="#deleteUserModal">
                     <a class="nav-link" >Delete user</a>
                 </li>`,
 
@@ -71,6 +69,7 @@ htmlStructures = {
                                 </div>
                             </form>
                         </div>
+                        <div class="modal-footer errorMessage"></div>
                     </div>
                 </div>
             </div>`,
@@ -109,6 +108,7 @@ htmlStructures = {
                                 </div>
                             </form>
                         </div>
+                        <div class="modal-footer errorMessage"></div>
                     </div>
                 </div>
             </div>`,
@@ -119,7 +119,7 @@ htmlStructures = {
                 <div class="modal-dialog" role="addUser">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="regModalLabel">Fill the inputs</h5>
+                            <h5 class="modal-title" id="addModalLabel">Fill the inputs</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -147,12 +147,41 @@ htmlStructures = {
                                 </div>
                             </form>
                         </div>
+                        <div class="modal-footer errorMessage"></div>
                     </div>
                 </div>
             </div>`,
 
-    loginError: `
-                <div class="modal-footer errorMessage"></div>`,
+    deleteUserModal: `
+            <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog"
+                 aria-labelledby="loginModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="delUser">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="delModalLabel">Delete user by ID</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            This is an irreversible action due to GDPR<br/>
+                            <form class="delUserForm">
+                                <div class="form-group">
+                                    <label for="delUserId">User ID</label>
+                                    <input id="delUserID" name="userIdDel" type="number" 
+                                        class="form-control" required min="1"/>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <input type="submit" class="btn btn-primary delUserBtn" value="Delete user"/>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer errorMessage"></div>
+                    </div>
+                </div>
+            </div>`,
+
 
     userDataTable: `
             <table class="table table-striped userData">

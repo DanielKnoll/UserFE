@@ -16,7 +16,7 @@ apiData = {
                 $("#loginModal").trigger({type: "click"});  // Modal close
             }
         }).fail(function(xhr) {
-            dom.utility.logInRegFailed(xhr.responseText);
+            dom.utility.responseMessage(xhr.responseText);
         });
     },
 
@@ -33,7 +33,7 @@ apiData = {
                 $("#regModal").trigger({type: "click"});  // Modal close
             }
         }).fail(function(xhr) {
-            dom.utility.logInRegFailed(xhr.responseText);
+            dom.utility.responseMessage(xhr.responseText);
         });
     },
 
@@ -52,7 +52,7 @@ apiData = {
         });
     },
 
-    postUserData: function(name, email, pswd) {
+    postAddUser: function(name, email, pswd) {
         $.jpost(apiData.data.serverAddress + "/api/adduser/",
             {
                 userName: name,
@@ -62,12 +62,30 @@ apiData = {
         ).done(function( response ) {
             if (response === "User added.") {
                 apiData.getUserData();
-                $("#addUserModal").trigger({type: "click"});  // Modal close
+                dom.utility.responseMessage(response);
+                setTimeout(function () {
+                    $("#addUserModal").trigger({type: "click"});  // Modal close
+                }, 1000);
             }
         }).fail(function(xhr) {
-            dom.utility.logInRegFailed(xhr.responseText);
+            dom.utility.responseMessage(xhr.responseText);
         });
-    }
+    },
+
+    postDeleteUser: function(id) {
+        $.jpost(apiData.data.serverAddress + "/api/deleteuser/", {userId: id,}
+        ).done(function( response ) {
+            if (response === "User with ID: " + id + " deleted") {
+                apiData.getUserData();
+                dom.utility.responseMessage(response);
+                setTimeout(function () {
+                    $("#addUserModal").trigger({type: "click"});  // Modal close
+                }, 1000);
+            }
+        }).fail(function(xhr) {
+            dom.utility.responseMessage(xhr.responseText);
+        });
+    },
 };
 
 $.extend({

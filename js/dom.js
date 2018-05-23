@@ -11,7 +11,8 @@ dom = {
             $(".navMenu li").hide();
             $(".logInOut").html(htmlStructures.logIn)
                 .append(htmlStructures.logOut)
-                .append(htmlStructures.addUserModal);
+                .append(htmlStructures.addUserModal)
+                .append(htmlStructures.deleteUserModal);
             if(dom.data.isLoggedIn) {
                 $(".logRegBtns").hide();
             } else {
@@ -26,6 +27,7 @@ dom = {
             dom.eventListeners.regSubmit();
             dom.eventListeners.logOutBtn();
             dom.eventListeners.addUserBtn();
+            dom.eventListeners.delUserBtn();
         }
     },
     eventListeners: {
@@ -61,7 +63,15 @@ dom = {
                 let userName = $("input[name='userNameAdd']").val();
                 let userEmail = $("input[name='userEmailAdd']").val();
                 let userPswd = $("input[name='userPasswordAdd']").val();
-                apiData.postUserData(userName, userEmail, userPswd);
+                apiData.postAddUser(userName, userEmail, userPswd);
+            });
+        },
+
+        delUserBtn: function () {
+            $(".delUserForm").submit(function(event){
+                event.preventDefault();
+                let id = $("input[name='userIdDel']").val();
+                apiData.postDeleteUser(id);
             });
         }
     },
@@ -77,9 +87,14 @@ dom = {
             apiData.getUserData();
         },
 
-        logInRegFailed: function (errorMsg) {
-            $(".modal-body").append(htmlStructures.loginError);
-            $(".errorMessage").html(errorMsg);
+        responseMessage: function (message) {
+            let modalFooter = $(".errorMessage");
+            modalFooter.html("");
+            message = (message === undefined) ? "Server is down. Come back later." : message;
+            modalFooter.html(message);
+            setTimeout(function () {
+                modalFooter.html("");
+            }, 1200);
         },
 
         logOutSuccess: function () {
