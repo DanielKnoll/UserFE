@@ -51,12 +51,40 @@ apiData = {
             dom.utility.renderUserData();
         });
     },
+
+    postUserData: function(name, email, pswd) {
+        $.jpost(apiData.data.serverAddress + "/api/adduser/",
+            {
+                userName: name,
+                userEmail: email,
+                userPassword: pswd,
+            }
+        ).done(function( response ) {
+            if (response === "User added.") {
+                apiData.getUserData();
+                $("#addUserModal").trigger({type: "click"});  // Modal close
+            }
+        }).fail(function(xhr) {
+            dom.utility.logInRegFailed(xhr.responseText);
+        });
+    }
 };
 
 $.extend({
     jpost: function(url, body) {
         return $.ajax({
             type: 'POST',
+            url: url,
+            data: JSON.stringify(body),
+            contentType: 'application/json',
+        });
+    }
+});
+
+$.extend({
+    jput: function(url, body) {
+        return $.ajax({
+            type: 'PUT',
             url: url,
             data: JSON.stringify(body),
             contentType: 'application/json',

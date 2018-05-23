@@ -10,7 +10,8 @@ dom = {
             $(".navMenu").html(htmlStructures.menuPoints);
             $(".navMenu li").hide();
             $(".logInOut").html(htmlStructures.logIn)
-                .append(htmlStructures.logOut);
+                .append(htmlStructures.logOut)
+                .append(htmlStructures.addUserModal);
             if(dom.data.isLoggedIn) {
                 $(".logRegBtns").hide();
             } else {
@@ -24,9 +25,11 @@ dom = {
             dom.eventListeners.loginSubmit();
             dom.eventListeners.regSubmit();
             dom.eventListeners.logOutBtn();
+            dom.eventListeners.addUserBtn();
         }
     },
     eventListeners: {
+
         loginSubmit: function() {
             $(".logInForm").submit(function(event){
                 event.preventDefault();
@@ -49,6 +52,16 @@ dom = {
         logOutBtn: function () {
             $(".logOutBtn").click(function () {
                 apiData.logOutFromServer();
+            });
+        },
+
+        addUserBtn: function () {
+            $(".addUserForm").submit(function(event){
+                event.preventDefault();
+                let userName = $("input[name='userNameAdd']").val();
+                let userEmail = $("input[name='userEmailAdd']").val();
+                let userPswd = $("input[name='userPasswordAdd']").val();
+                apiData.postUserData(userName, userEmail, userPswd);
             });
         }
     },
