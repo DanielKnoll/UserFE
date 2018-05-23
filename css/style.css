@@ -15,3 +15,8 @@
     text-align: center;
     margin-top: 100px;
 }
+
+.errorMessage {
+    color: darkred;
+    font-weight: 600;
+}

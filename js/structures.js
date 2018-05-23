@@ -43,7 +43,7 @@ htmlStructures = {
             </div>`,
 
     logInModal: `
-            <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+                <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
                  aria-labelledby="loginModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="login">
                     <div class="modal-content">
@@ -67,7 +67,7 @@ htmlStructures = {
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <input type="submit" class="btn btn-primary logInBtn" value="Login"> </input>
+                                    <input type="submit" class="btn btn-primary logInBtn" value="Login"/>
                                 </div>
                             </form>
                         </div>
@@ -90,22 +90,22 @@ htmlStructures = {
                             <form class="regForm">
                                 <div class="form-group">
                                     <label for="regUserName">User Name</label>
-                                    <input id="regUserName" name="userName" type="text" class="form-control"
+                                    <input id="regUserName" name="userNameReg" type="text" class="form-control"
                                            placeholder="Name" required minlength="3"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="regUserEmail">Password</label>
-                                    <input id="regUserEmail" name="userEmail" type="email" class="form-control"
+                                    <label for="regUserEmail">Email</label>
+                                    <input id="regUserEmail" name="userEmailReg" type="email" class="form-control"
                                            placeholder="email@example.com" required/>
                                 </div>
                                 <div class="form-group">
                                     <label for="regUserPassword">Password</label>
-                                    <input id="regUserPassword" name="userPassword" type="password" class="form-control"
+                                    <input id="regUserPassword" name="userPasswordReg" type="password" class="form-control"
                                            placeholder="Password" required minlength="8"/>
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <input type="submit" class="btn btn-primary regBtn" value="Register"> </input>
+                                    <input type="submit" class="btn btn-primary regBtn" value="Register"/>
                                 </div>
                             </form>
                         </div>
@@ -113,6 +113,7 @@ htmlStructures = {
                 </div>
             </div>`,
 
-    errorModal: ``,
+    loginError: `
+                <div class="modal-footer errorMessage"></div>`
 };
 

@@ -11,8 +11,27 @@ apiData = {
                 userPassword: pswd,
             }
         ).done(function( response ) {
-            if(response === 'Logged in') {
+            if (response === "Logged in") {
                 dom.utility.logInSuccess(name);
+                $("#loginModal").trigger({type: "click"});  // Modal close
+            }
+        }).fail(function(xhr) {
+            console.log(xhr);
+            dom.utility.logInFailed(xhr.responseText);
+        });
+    },
+
+    postRegData: function (name, email, pswd) {
+        $.jpost(apiData.data.serverAddress + "/api/registration/",
+            {
+                userName: name,
+                userEmail: email,
+                userPassword: pswd,
+            }
+        ).done(function( response ) {
+            if (response === "Registration successful") {
+                dom.utility.logInSuccess(name);
+                $("#regModal").trigger({type: "click"});  // Modal close
             }
         });
     },
