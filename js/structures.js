@@ -54,20 +54,20 @@ htmlStructures = {
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form class="logInForm">
                                 <div class="form-group">
                                     <label for="userName">User Name</label>
                                     <input id="userName" name="userName" type="text" class="form-control"
-                                           placeholder="Name" required minlength="3"/>
+                                           placeholder="Name" required minlength="1"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="userPassword">Password</label>
                                     <input id="userPassword" name="userPassword" type="password"
-                                           class="form-control" placeholder="Password" required minlength="8"/>
+                                           class="form-control" placeholder="Password" required minlength="1"/>
                                 </div>
                                 <div class="form-group">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Login</button>
+                                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <input type="submit" class="btn btn-primary logInBtn" value="Login"> </input>
                                 </div>
                             </form>
                         </div>
@@ -87,7 +87,7 @@ htmlStructures = {
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form class="regForm">
                                 <div class="form-group">
                                     <label for="regUserName">User Name</label>
                                     <input id="regUserName" name="userName" type="text" class="form-control"
@@ -104,8 +104,8 @@ htmlStructures = {
                                            placeholder="Password" required minlength="8"/>
                                 </div>
                                 <div class="form-group">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Register</button>
+                                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <input type="submit" class="btn btn-primary regBtn" value="Register"> </input>
                                 </div>
                             </form>
                         </div>
