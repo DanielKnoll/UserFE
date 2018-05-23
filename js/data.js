@@ -16,8 +16,7 @@ apiData = {
                 $("#loginModal").trigger({type: "click"});  // Modal close
             }
         }).fail(function(xhr) {
-            console.log(xhr);
-            dom.utility.logInFailed(xhr.responseText);
+            dom.utility.logInRegFailed(xhr.responseText);
         });
     },
 
@@ -33,6 +32,8 @@ apiData = {
                 dom.utility.logInSuccess(name);
                 $("#regModal").trigger({type: "click"});  // Modal close
             }
+        }).fail(function(xhr) {
+            dom.utility.logInRegFailed(xhr.responseText);
         });
     },
 

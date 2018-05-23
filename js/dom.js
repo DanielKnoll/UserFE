@@ -60,7 +60,7 @@ dom = {
             //get user list - succes - load userlist
         },
 
-        logInFailed: function (errorMsg) {
+        logInRegFailed: function (errorMsg) {
             $(".modal-body").append(htmlStructures.loginError);
             $(".errorMessage").html(errorMsg);
         },
