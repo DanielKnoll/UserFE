@@ -114,6 +114,19 @@ htmlStructures = {
             </div>`,
 
     loginError: `
-                <div class="modal-footer errorMessage"></div>`
+                <div class="modal-footer errorMessage"></div>`,
+
+    userDataTable: `
+            <table class="table table-striped userData">
+                <thead >
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                </tr>
+                </thead>
+                <tbody class="usrDBody">
+                </tbody>
+            </table>`
 };
 

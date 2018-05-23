@@ -1,6 +1,7 @@
 dom = {
     data: {
-        isLoggedIn: false
+        userData: [],
+        isLoggedIn: false  // TODO request this from server
     },
 
     initFunctions: {
@@ -10,7 +11,11 @@ dom = {
             $(".navMenu li").hide();
             $(".logInOut").html(htmlStructures.logIn)
                 .append(htmlStructures.logOut);
-            $(".logOutBtns").hide();
+            if(dom.data.isLoggedIn) {
+                $(".logRegBtns").hide();
+            } else {
+                $(".logOutBtns").hide();
+            }
             $(".modalPlace").html(htmlStructures.logInModal)
                 .append(htmlStructures.regModal);
         },
@@ -56,8 +61,7 @@ dom = {
             $(".logOutBtns").show();
             $(".errorMessage").html("");
             $(".usrGreeter").html("Hi " + username);
-            $(".container").html("<h1>Logged in</h1>");
-            //get user list - succes - load userlist
+            apiData.getUserData();
         },
 
         logInRegFailed: function (errorMsg) {
@@ -71,6 +75,28 @@ dom = {
             $(".logOutBtns").hide();
             $(".logRegBtns").show();
             $(".container").html(`<h1>Please log in or register to see the user data.</h1>`);
+        },
+        
+        renderUserData: function () {
+            $(".container").html(htmlStructures.userDataTable);
+            for(let i = 0; i < dom.data.userData.length; i++){
+                $(".usrDBody").append(dom.utility.getRowForTable(dom.data.userData[i]));
+            }
+        },
+
+        getRowForTable: function (oneUserData) {
+            return `<tr>
+                        <td>` + oneUserData[0] + `</td>
+                        <td>` + oneUserData[1] + `</td>
+                        <td>` + oneUserData[2] + `</td>
+                    </tr>`;
+        }
+    },
+
+    dataFunctions: {
+
+        saveUserData: function (userData) {
+            dom.data.userData = userData.allUsers;
         }
     }
 };

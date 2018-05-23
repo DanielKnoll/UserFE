@@ -44,6 +44,13 @@ apiData = {
             }
         });
     },
+
+    getUserData: function () {
+        $.getJSON(apiData.data.serverAddress + "/api/users", function (userData) {
+            dom.dataFunctions.saveUserData(userData);
+            dom.utility.renderUserData();
+        });
+    },
 };
 
 $.extend({
