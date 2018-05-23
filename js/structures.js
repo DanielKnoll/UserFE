@@ -7,40 +7,40 @@ htmlStructures = {
             </button>
     
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link usrList" href="#">User list <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link usrAdd" href="#">Add user</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link userDel" href="#">Delete user</a>
-                    </li>
+                <ul class="navbar-nav mr-auto navMenu">
+                    
                 </ul>
                 <ul class="nav navbar-nav ">
-                    <li class="active">
-                        <div class="btn-group logReg" role="group">
-                        </div>
+                    <li class="active logInOut">
                     </li>
                 </ul>
             </div>`,
 
     menuPoints: `
-            <li class="nav-item active usrList">User list</li> <!--active has to change-->
-            <li class="nav-item usrAdd">Add user</li>
-            <li class="nav-item userDel">Delete user</li>`,
+                <li class="nav-item active">
+                    <a class="nav-link usrList" href="#">User list <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link usrAdd" href="#">Add user</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link userDel" href="#">Delete user</a>
+                </li>`,
 
     logIn: `
-            <button type="button" class="btn btn-danger reg" data-toggle="modal" data-target="#regModal">
-              Register
-            </button>
-            <button type="button" class="btn btn-primary log" data-toggle="modal" data-target="#loginModal">
-              Login
-            </button>`,
+            <div class="btn-group logRegBtns" role="group">
+                <button type="button" class="btn btn-danger reg" data-toggle="modal" data-target="#regModal">
+                  Register
+                </button>
+                <button type="button" class="btn btn-primary log" data-toggle="modal" data-target="#loginModal">
+                  Login
+                </button>
+            </div>`,
     logOut: `
-            <button class="btn btn-outline-danger reg usrGreeter">Hi user</button>
-            <button class="btn btn-primary log">Logout</button>`,
+            <div class="btn-group logOutBtns" role="group">
+                <button class="btn btn-outline-danger reg usrGreeter">Hi user</button>
+                <button class="btn btn-primary log logOutBtn">Logout</button>
+            </div>`,
 
     logInModal: `
             <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
